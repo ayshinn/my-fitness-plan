@@ -1,5 +1,7 @@
 # My Fitness Plan
 
+**Live:** https://ayshinn.github.io/my-fitness-plan/
+
 Mobile-first static site for tracking an Upper/Lower strength + hypertrophy program with weekly undulating periodization. Built to be readable in the gym on a phone, with localStorage logging of sets.
 
 ## Structure
