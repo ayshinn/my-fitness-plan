@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d0d0d">
+<title>Overview · My Fitness Plan</title>
+<link rel="stylesheet" href="./css/styles.css">
+<style>
+  .ov-week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-bottom: 24px;
+  }
+  .ov-week .d {
+    text-align: center;
+    padding: 10px 4px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--surface);
+  }
+  .ov-week .d.blue { border-color: var(--blue); background: rgba(79,163,255,0.06); }
+  .ov-week .d.orange { border-color: var(--orange); background: rgba(255,107,53,0.06); }
+  .ov-week .d.purple { border-color: var(--purple); background: rgba(192,132,252,0.06); }
+  .ov-week .d.rest { opacity: 0.4; }
+  .ov-week .d .day { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .ov-week .d .what { font-size: 11px; font-weight: 600; }
+
+  .ov-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 14px;
+    overflow: hidden;
+  }
+  .ov-card.blue { border-left-color: var(--blue); }
+  .ov-card.orange { border-left-color: var(--orange); }
+  .ov-card.purple { border-left-color: var(--purple); }
+
+  .ov-head {
+    padding: 14px 16px 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .ov-head .row { display: flex; align-items: baseline; gap: 8px; }
+  .ov-head .day-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .ov-head .title { font-size: 17px; font-weight: 600; }
+  .ov-head .sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+  .ov-group { padding: 10px 16px 4px; }
+  .ov-group-label {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 8px 0 6px;
+  }
+  .ov-ex {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    align-items: baseline;
+  }
+  .ov-ex:last-child { border-bottom: none; }
+  .ov-ex .nm { font-weight: 500; }
+  .ov-ex .nm.compound { color: var(--accent); }
+  .ov-ex .spec {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", monospace;
+    font-size: 12px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .ov-ex .spec strong { color: var(--text); }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="back" href="./index.html" aria-label="Back">‹</a>
+  <h1>Plan Overview</h1>
+</header>
+
+<main class="container">
+  <div class="week-note">Full plan at a glance. Tap any day on home to log sets. Mesocycle adjustments (W1–W4) applied per workout view.</div>
+
+  <div class="section-title">Week</div>
+  <div class="ov-week" id="weekStrip"></div>
+
+  <div id="cards"></div>
+
+  <div class="section-title">Quick Reference</div>
+  <div class="day-list">
+    <a class="day-card" href="./rpe.html"><div class="day-label">RPE</div><div class="day-info"><div class="day-title">RPE Guide</div><div class="day-sub">6 easy → 10 max</div></div><div class="chevron">›</div></a>
+    <a class="day-card" href="./mesocycle.html"><div class="day-label">PLAN</div><div class="day-info"><div class="day-title">Mesocycle</div><div class="day-sub">4-week phases + overload rules</div></div><div class="chevron">›</div></a>
+  </div>
+</main>
+
+<script type="module" src="./js/overview.js"></script>
+</body>
+</html>
