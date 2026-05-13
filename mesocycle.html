@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d0d0d">
+<title>Mesocycle Overview</title>
+<link rel="stylesheet" href="./css/styles.css">
+<style>
+  .phase {
+    padding: 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 12px;
+  }
+  .phase .head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+  .phase .wk { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+  .phase .name { font-size: 20px; font-weight: 700; color: var(--accent); }
+  .phase ul { list-style: none; padding: 0; margin: 8px 0; }
+  .phase li { font-size: 13px; padding: 4px 0; color: var(--text); border-bottom: 1px solid var(--border); }
+  .phase li:last-child { border-bottom: none; }
+  .phase li span { color: var(--muted); }
+  .phase p { font-size: 13px; color: var(--muted); margin-top: 8px; }
+  .phase.deload { border-color: rgba(232,255,71,0.3); background: rgba(232,255,71,0.04); }
+  .phase.deload .name { color: var(--accent2); }
+
+  .rule {
+    padding: 14px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  .rule .t {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .rule .b { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .rule .b strong { color: var(--text); }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="back" href="./index.html" aria-label="Back">‹</a>
+  <h1>Mesocycle</h1>
+</header>
+
+<main class="container">
+  <div class="week-note">4-week blocks. Weeks 1–3 progressively overload, week 4 deloads. Repeat with heavier loads next cycle.</div>
+
+  <div class="section-title">Phases</div>
+
+  <div class="phase">
+    <div class="head"><span class="wk">Week 1</span><span class="name">Acclimation</span></div>
+    <ul>
+      <li>RPE on compounds: <span>7</span></li>
+      <li>Reps: <span>Upper end of range</span></li>
+      <li>Goal: <span>Find working weights</span></li>
+    </ul>
+    <p>Nothing should feel brutal. Set the baseline for the next 3 weeks.</p>
+  </div>
+
+  <div class="phase">
+    <div class="head"><span class="wk">Week 2</span><span class="name">Build</span></div>
+    <ul>
+      <li>RPE on compounds: <span>8</span></li>
+      <li>Load: <span>+5–10 lb on bar</span></li>
+      <li>Goal: <span>Push the limit</span></li>
+    </ul>
+    <p>Add weight or squeeze an extra rep. Real work.</p>
+  </div>
+
+  <div class="phase">
+    <div class="head"><span class="wk">Week 3</span><span class="name">Overreach</span></div>
+    <ul>
+      <li>RPE on compounds: <span>8–9</span></li>
+      <li>Load: <span>+5–10 lb again</span></li>
+      <li>Goal: <span>Accumulate fatigue</span></li>
+    </ul>
+    <p>Hardest week. Fatigue is deliberate — drives adaptation after deload.</p>
+  </div>
+
+  <div class="phase deload">
+    <div class="head"><span class="wk">Week 4</span><span class="name">Deload</span></div>
+    <ul>
+      <li>RPE max: <span>6</span></li>
+      <li>Sets: <span>Cut by ~40%</span></li>
+      <li>Load: <span>Same weight</span></li>
+    </ul>
+    <p>Drop volume, keep movement quality. Don't skip this — next cycle starts stronger because of it.</p>
+  </div>
+
+  <div class="section-title">Progressive Overload Rules</div>
+
+  <div class="rule"><div class="t">Double Progression</div><div class="b">If a set calls for <strong>8–10 reps</strong>, hit 10 at RPE 8 before adding weight. Top of range clean → <strong>+5 lb</strong> next session, back to 8 reps.</div></div>
+  <div class="rule"><div class="t">Compound Loading</div><div class="b">Bench / OHP: <strong>+2.5–5 lb / week</strong>. Squat / DL: <strong>+5–10 lb / week</strong>. Only when RPE 8 at top rep target.</div></div>
+  <div class="rule"><div class="t">Track Everything</div><div class="b">Log weight, reps, RPE every set. This app saves to localStorage — also fine to mirror to <strong>Hevy</strong> or <strong>Strong</strong>.</div></div>
+  <div class="rule"><div class="t">Mesocycle Reset</div><div class="b">Start next cycle at <strong>week 3 weight, RPE 7</strong>. New PRs hit weeks 2–3.</div></div>
+  <div class="rule"><div class="t">When NOT to Add</div><div class="b">RPE 9+ before finishing reps → keep weight, chase reps instead. Form breakdown → reduce. Never sacrifice form.</div></div>
+  <div class="rule"><div class="t">Recovery</div><div class="b">Overload only works with recovery. <strong>7–9 hrs sleep</strong>, <strong>0.7–1 g protein / lb bodyweight</strong>.</div></div>
+</main>
+
+</body>
+</html>

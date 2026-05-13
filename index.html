@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d0d0d">
+<title>My Fitness Plan</title>
+<link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <h1>My Fitness Plan</h1>
+  <button class="week-pill" id="weekPill" aria-label="Change week">W1</button>
+</header>
+
+<main class="container">
+  <div class="section-title">Mesocycle Week</div>
+  <div class="week-selector" id="weekSelector"></div>
+  <div class="week-note" id="weekNote"></div>
+
+  <div class="section-title">This Week</div>
+  <div class="day-list" id="dayList"></div>
+
+  <div class="section-title">1 Rep Maxes</div>
+  <div class="prs" id="prs"></div>
+
+  <div class="section-title">Reference</div>
+  <div class="day-list">
+    <a class="day-card" href="./rpe.html">
+      <div class="day-label">RPE</div>
+      <div class="day-info">
+        <div class="day-title">RPE Guide</div>
+        <div class="day-sub">Rate of Perceived Exertion · autoregulation</div>
+      </div>
+      <div class="chevron">›</div>
+    </a>
+    <a class="day-card" href="./mesocycle.html">
+      <div class="day-label">PLAN</div>
+      <div class="day-info">
+        <div class="day-title">Mesocycle Overview</div>
+        <div class="day-sub">4-week structure · progressive overload rules</div>
+      </div>
+      <div class="chevron">›</div>
+    </a>
+  </div>
+</main>
+
+<script type="module" src="./js/home.js"></script>
+</body>
+</html>

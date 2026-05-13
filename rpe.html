@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d0d0d">
+<title>RPE Guide</title>
+<link rel="stylesheet" href="./css/styles.css">
+<style>
+  .rpe-row {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 16px;
+    padding: 16px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+  .rpe-num { font-size: 36px; font-weight: 700; text-align: center; line-height: 1; }
+  .rpe-desc { font-size: 14px; color: var(--muted); line-height: 1.5; }
+  .rpe-desc strong { color: var(--text); display: block; margin-bottom: 4px; }
+  .c6 { color: var(--blue); }
+  .c7 { color: #5fb8ff; }
+  .c8 { color: var(--accent); }
+  .c9 { color: #ff9f47; }
+  .c10 { color: var(--danger); }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="back" href="./index.html" aria-label="Back">‹</a>
+  <h1>RPE Guide</h1>
+</header>
+
+<main class="container">
+  <div class="week-note">Rate of Perceived Exertion — autoregulate intensity day to day. RPE 8 = "2 reps left in the tank" is the workhorse target.</div>
+
+  <div class="rpe-row"><div class="rpe-num c6">6</div><div class="rpe-desc"><strong>Easy</strong>Could do 4+ more reps. Warm-up territory. Deload week.</div></div>
+  <div class="rpe-row"><div class="rpe-num c7">7</div><div class="rpe-desc"><strong>Moderate</strong>3 reps in the tank. Accessories live here.</div></div>
+  <div class="rpe-row"><div class="rpe-num c8">8</div><div class="rpe-desc"><strong>Hard</strong>2 reps left. Most compound work targets this.</div></div>
+  <div class="rpe-row"><div class="rpe-num c9">9</div><div class="rpe-desc"><strong>Very hard</strong>1 rep left. Week 3 overreach territory only.</div></div>
+  <div class="rpe-row"><div class="rpe-num c10">10</div><div class="rpe-desc"><strong>Max</strong>Nothing left. Testing only — not normal training.</div></div>
+</main>
+
+</body>
+</html>
