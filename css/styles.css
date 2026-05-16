@@ -436,24 +436,63 @@ input:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
 .modal p { font-size: 14px; color: var(--muted); margin-bottom: 16px; }
 .modal .row { display: flex; gap: 8px; }
 
-/* ===== Workout mode toggle button ===== */
-.mode-btn {
-  background: transparent;
+/* ===== Workout mode banner ===== */
+.mode-banner {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 16px;
+}
+
+.mode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 56px;
+  background: var(--surface);
   border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 16px;
+  text-align: left;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.mode-toggle.active {
+  background: rgba(232,255,71,0.08);
+  border-color: rgba(232,255,71,0.4);
+}
+
+.mode-toggle-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mode-toggle-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.mode-toggle-sub {
+  font-size: 12px;
   color: var(--muted);
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-size: 11px;
+}
+
+.mode-toggle-pill {
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  min-height: var(--tap);
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--surface2);
+  color: var(--muted);
+  border: 1px solid var(--border);
+  flex-shrink: 0;
 }
 
-.mode-btn.active {
+.mode-toggle.active .mode-toggle-pill {
   background: var(--accent);
   color: #000;
   border-color: var(--accent);
@@ -533,15 +572,11 @@ input:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 14px 16px;
-  padding-bottom: max(14px, env(safe-area-inset-bottom));
   background: var(--surface2);
-  border-top: 2px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  border-top: 3px solid var(--border);
   z-index: 20;
   transition: transform 0.25s ease;
+  overflow: hidden;
 }
 
 .timer-bar.hidden {
@@ -550,23 +585,56 @@ input:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
 
 .timer-bar.warn  { border-top-color: #ffaa00; }
 .timer-bar.danger { border-top-color: var(--danger); }
-.timer-bar.done  { border-top-color: var(--accent); background: rgba(232,255,71,0.1); }
+.timer-bar.done  { border-top-color: var(--accent); background: rgba(232,255,71,0.08); }
 
-.timer-info { display: flex; flex-direction: column; gap: 1px; }
+/* Progress track sits at very top of bar */
+.timer-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.timer-fill {
+  height: 100%;
+  width: 100%;
+  background: var(--accent);
+  transition: width 0.5s linear, background 0.5s;
+  transform-origin: left;
+}
+
+.timer-bar.warn  .timer-fill { background: #ffaa00; }
+.timer-bar.danger .timer-fill { background: var(--danger); }
+.timer-bar.done  .timer-fill { background: var(--accent); width: 0 !important; }
+
+/* Inner layout */
+.timer-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+}
+
+.timer-info { display: flex; flex-direction: column; gap: 2px; }
 
 .timer-label {
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
 }
 
 .timer-display {
-  font-size: 36px;
+  font-size: 48px;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   color: var(--text);
   line-height: 1;
+  letter-spacing: -0.02em;
 }
 
 .timer-bar.warn   .timer-display { color: #ffaa00; }
@@ -576,21 +644,21 @@ input:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
 .timer-actions { display: flex; gap: 10px; align-items: center; }
 
 .timer-btn {
-  min-width: 44px;
-  min-height: 44px;
+  min-width: 52px;
+  min-height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+  font-size: 24px;
   border-radius: 50%;
   background: var(--surface);
   border: 1px solid var(--border);
 }
 
-.timer-cancel { font-size: 16px; color: var(--muted); }
+.timer-cancel { font-size: 18px; color: var(--muted); }
 
 /* Extra bottom padding when timer bar is visible */
-.container.timer-active { padding-bottom: 130px; }
+.container.timer-active { padding-bottom: 150px; }
 
 /* ===== Wider screens ===== */
 @media (min-width: 720px) {
