@@ -436,6 +436,162 @@ input:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
 .modal p { font-size: 14px; color: var(--muted); margin-bottom: 16px; }
 .modal .row { display: flex; gap: 8px; }
 
+/* ===== Workout mode toggle button ===== */
+.mode-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  min-height: var(--tap);
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.mode-btn.active {
+  background: var(--accent);
+  color: #000;
+  border-color: var(--accent);
+}
+
+/* ===== Condensed (normal) mode exercise card ===== */
+.exercise.condensed .ex-summary {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.exercise.condensed .ex-name {
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+.ex-meta {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.ex-meta .suggested {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.exercise.condensed .last-week {
+  padding: 6px 14px;
+  font-size: 11px;
+}
+
+.exercise.condensed .set-fields-head {
+  padding: 0 14px;
+  margin-top: 2px;
+}
+
+.exercise.condensed .sets-list {
+  padding: 8px 14px 6px;
+  gap: 6px;
+}
+
+.exercise.condensed .set-row input {
+  min-height: 38px;
+  font-size: 15px;
+  padding: 6px 4px;
+}
+
+.exercise.condensed .set-row .del {
+  font-size: 18px;
+  min-width: 32px;
+  min-height: 32px;
+}
+
+/* ===== Workout mode: rest timer button ===== */
+.rest-btn {
+  display: block;
+  width: calc(100% - 32px);
+  margin: 10px 16px 4px;
+  padding: 10px 14px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+}
+
+.rest-btn:active {
+  opacity: 0.7;
+}
+
+/* ===== Timer bar (fixed bottom) ===== */
+.timer-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 14px 16px;
+  padding-bottom: max(14px, env(safe-area-inset-bottom));
+  background: var(--surface2);
+  border-top: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 20;
+  transition: transform 0.25s ease;
+}
+
+.timer-bar.hidden {
+  transform: translateY(110%);
+}
+
+.timer-bar.warn  { border-top-color: #ffaa00; }
+.timer-bar.danger { border-top-color: var(--danger); }
+.timer-bar.done  { border-top-color: var(--accent); background: rgba(232,255,71,0.1); }
+
+.timer-info { display: flex; flex-direction: column; gap: 1px; }
+
+.timer-label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.timer-display {
+  font-size: 36px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+  line-height: 1;
+}
+
+.timer-bar.warn   .timer-display { color: #ffaa00; }
+.timer-bar.danger .timer-display { color: var(--danger); }
+.timer-bar.done   .timer-display { color: var(--accent); }
+
+.timer-actions { display: flex; gap: 10px; align-items: center; }
+
+.timer-btn {
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.timer-cancel { font-size: 16px; color: var(--muted); }
+
+/* Extra bottom padding when timer bar is visible */
+.container.timer-active { padding-bottom: 130px; }
+
 /* ===== Wider screens ===== */
 @media (min-width: 720px) {
   html { font-size: 17px; }

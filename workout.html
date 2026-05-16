@@ -12,10 +12,22 @@
 <header class="topbar">
   <a class="back" href="./index.html" aria-label="Back">‹</a>
   <h1 id="title">Workout</h1>
+  <button class="mode-btn" id="modeBtn" aria-label="Enter workout mode">WORKOUT</button>
   <button class="week-pill" id="weekPill" aria-label="Change week">W1</button>
 </header>
 
 <main class="container" id="content"></main>
+
+<div class="timer-bar hidden" id="timerBar">
+  <div class="timer-info">
+    <div class="timer-label" id="timerLabel">Rest</div>
+    <div class="timer-display" id="timerDisplay">0:00</div>
+  </div>
+  <div class="timer-actions">
+    <button class="timer-btn" id="timerToggle" aria-label="Pause or resume timer">▶</button>
+    <button class="timer-btn timer-cancel" id="timerCancel" aria-label="Cancel timer">✕</button>
+  </div>
+</div>
 
 <script type="module" src="./js/workout.js"></script>
 </body>
