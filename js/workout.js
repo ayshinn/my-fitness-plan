@@ -12,7 +12,10 @@ const titleEl = document.getElementById("title");
 const weekPillEl = document.getElementById("weekPill");
 const contentEl = document.getElementById("content");
 const modeBtn = document.getElementById("modeBtn");
+const modePillEl = document.getElementById("modePill");
+const modeSubtextEl = document.getElementById("modeSubtext");
 const timerBar = document.getElementById("timerBar");
+const timerFillEl = document.getElementById("timerFill");
 const timerDisplayEl = document.getElementById("timerDisplay");
 const timerLabelEl = document.getElementById("timerLabel");
 const timerToggleBtn = document.getElementById("timerToggle");
@@ -25,6 +28,7 @@ let timerEndTime = null;
 let timerSavedMs = 0;
 let timerRunning = false;
 let timerRemaining = 0;
+let timerTotalSecs = 0;
 let timerHandle = null;
 let timerExName = "";
 
@@ -41,6 +45,10 @@ if (!workout) {
 function applyMode() {
   modeBtn.classList.toggle("active", workoutMode);
   modeBtn.setAttribute("aria-label", workoutMode ? "Exit workout mode" : "Enter workout mode");
+  modePillEl.textContent = workoutMode ? "ON" : "OFF";
+  modeSubtextEl.textContent = workoutMode
+    ? "Rest timer starts automatically after each set"
+    : "Enable for auto rest timer & set tracking";
 }
 
 function escapeHtml(s) {
@@ -64,6 +72,7 @@ function parseRestSeconds(restStr) {
 function startRestTimer(seconds, exName) {
   clearInterval(timerHandle);
   timerExName = exName;
+  timerTotalSecs = seconds;
   timerEndTime = Date.now() + seconds * 1000;
   timerSavedMs = seconds * 1000;
   timerRunning = true;
@@ -91,6 +100,8 @@ function updateTimerDisplay() {
   if (!timerBar.classList.contains("done")) {
     if (timerRemaining <= 10) timerBar.classList.add("danger");
     else if (timerRemaining <= 30) timerBar.classList.add("warn");
+    const pct = timerTotalSecs > 0 ? (timerRemaining / timerTotalSecs) * 100 : 0;
+    timerFillEl.style.width = `${pct}%`;
   }
 }
 
